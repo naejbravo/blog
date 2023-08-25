@@ -1,5 +1,6 @@
 ---
-import './../styles/globals.css';
+
+import Base from '../layouts/Base.astro';
 
 const title = "About me";
 
@@ -13,41 +14,28 @@ const identity = {
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Angular"];
 
 const happy = true;
-const finished = false;
+const finished = true;
 const goal = 3;
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<a href="/">Home</a>
-		<a href="/about/">About me</a>
-		<a href="/blog/">Blog</a>
-		<h1 class=" text-purple-500 text-4xl">{title}</h1>
-		<h2>And my blog developed with astro</h2>		
-		<p>Im working on astro tutorial about create SPAs</p>
-		<p>This site will be update when each goals done</p>
-		<p>Some data about me:</p>
-		<ul>
-			<li>My name is: {identity.firstName}</li>
-			<li>I live in {identity.country} and i work how a {identity.occupation}.</li>
-			{
-				identity.hobbies.length >= 2 && 
-				<li>Two of my favorite hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
-			}
-		</ul>
-		<p>My skills</p>
-		<ul>
-			{skills.map((skill)=> <li class=" text-green-500 font-bold">{skill}</li>)}
-		</ul>
-		{happy && <p>¡Im happy to learn Astro!</p>}
-		{finished && <p>¡I already finish this tutorial!</p>}
-		{goal === 3 ? <p>My goal is finish course in 3 days</p> : <p>My goal is not finish the course in 3 days</p>}
-	</body>
-</html>
+	<Base title="About me">
+	<h1 class=" text-purple-500 text-4xl">{title}</h1>
+	<h2>And my blog developed with astro</h2>		
+	<p>Im working on astro tutorial about create SPAs</p>
+	<p>This site will be update when each goals done</p>
+	<p>Some data about me:</p>
+	<ul>
+		<li>My name is: {identity.firstName}</li>
+		<li>I live in {identity.country} and i work how a {identity.occupation}.</li>
+		{
+			identity.hobbies.length >= 2 && 
+			<li>Two of my favorite hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+		}
+	</ul>
+	<p>My skills</p>
+	<ul>
+		{skills.map((skill)=> <li class=" text-green-500 font-bold">{skill}</li>)}
+	</ul>
+	{happy && <p>¡Im happy to learn Astro!</p>}
+	{finished && <p>¡I already finish this tutorial!</p>}
+	{goal === 3 ? <p>My goal is finish course in 3 days</p> : <p>My goal is not finish the course in 3 days</p>}
+	</Base>

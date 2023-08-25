@@ -1,0 +1,7 @@
+---
+const {route} = Astro.props;
+console.log(route);
+
+---
+{!route && <a class="block text-center py-3 px-0 no-underline text-lg font-bold uppercase hover:bg-red-200 focus:bg-red-200 md:inline-block md:py-4 md:px-5" href="/">Home</a>}
+{route && <a href={`/${route}`} class="block text-center py-3 px-0 no-underline text-lg font-bold uppercase hover:bg-red-200 focus:bg-red-200 md:inline-block md:py-4 md:px-5">{route}</a>

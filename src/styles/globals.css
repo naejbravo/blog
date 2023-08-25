@@ -7,15 +7,28 @@ html{
     font-family: sans-serif;  
 }
 
+html.dark{
+    background-color: #0d0950;
+    color: #fff;
+}
+
+.dark .nav-links a{
+    color: #fff;
+}
+
 body{
-    margin: 0 auto;
+    margin: 0 auto !important;
     width: 100%;
     max-width: 80ch;
     padding: 1rem;
-    line-height: 1.5;
+    line-height: 1.5!important;
 }
 
 h1{
     margin: 1rem 0;
     font-size: 2.5rem;
 }
+
+.expanded {
+    display: unset;
+  }

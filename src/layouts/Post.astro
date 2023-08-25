@@ -1,0 +1,15 @@
+---
+import Base from "./Base.astro";
+const {frontmatter} = Astro.props;
+const date = new Date(frontmatter.pubDate.toDateString());
+---
+<Base>
+    <p>{date}</p>
+    <p><em>{frontmatter.description}</em></p>
+    <p>Writed by: {frontmatter.author}</p>
+    <img src={frontmatter.image.url} alt={frontmatter.image.alt}>
+    <div class="flex flex-wrap mx-0 my-auto">
+        {frontmatter.tags.map((tag: any) => <p class=" m-1 border-dotted border-[1px] border-gray-300 rounded-lg px-2 py-4 text-base bg-green-400"><a href={`/tags/${tag}`}>{tag}</a></p>)}
+    </div>
+    <slot/>
+</Base>
